@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <LinearLayout
@@ -27,15 +28,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:background="#F6F6F6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabTextColor="#333333"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#E1E1E1"/>
+</LinearLayout>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabTextColor="#ccffffff"
-            app:tabSelectedTextColor="#fff"
-            app:tabGravity="fill"
-            app:tabMode="fixed" />
+
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 

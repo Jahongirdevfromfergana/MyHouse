@@ -20,15 +20,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+
+
         setContentView(binding.root)
         val first = "Камерь"
         val second = "Двери"
         setupViewPager(binding.viewpager)
         binding.tabs!!.setupWithViewPager(binding.viewpager)
-        binding.tabs.setTabTextColors(
-            resources.getColor(R.color.black),
-            resources.getColor(R.color.black)
-        )
+//        binding.tabs.setTabTextColors(
+//            resources.getColor(R.color.black),
+//            resources.getColor(R.color.black)
+//        )
     }
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)

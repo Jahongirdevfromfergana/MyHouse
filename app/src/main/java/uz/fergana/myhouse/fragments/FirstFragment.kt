@@ -5,10 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import uz.fergana.myhouse.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import uz.fergana.myhouse.databinding.FragmentFirstBinding
+import uz.fergana.myhouse.repository.NetworkManager
 
 
 class FirstFragment : Fragment() {
+
+    lateinit var binding: FragmentFirstBinding
 
 
     override fun onCreateView(
@@ -16,7 +20,29 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        binding = FragmentFirstBinding.inflate(inflater, container, false)
+        return binding.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.recPost.layoutManager = LinearLayoutManager(requireActivity())
+//        binding.recPost.adapter = PostAdapter(listOf(
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//            PostModel(R.drawable.img, "Lorem ipsum", "No comment"),
+//        ))
+
+
     }
 
     companion object {
