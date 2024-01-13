@@ -21,6 +21,7 @@ class CameraAdapter(val items: List<CameraModel>): RecyclerView.Adapter<CameraAd
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val item = items[position]
         Glide.with(holder.itemView.context).load(item.snapshot).into(holder.binding.postImg)
+//        holder.binding.postImg.setImageResource(item.snapshot)
         holder.binding.postTitle.text = item.name
         holder.binding.postComment.text = item.room
     }
