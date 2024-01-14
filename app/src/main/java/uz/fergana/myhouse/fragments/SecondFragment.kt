@@ -30,6 +30,7 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val response = doorApiService.getDoorData()
@@ -38,9 +39,26 @@ class SecondFragment : Fragment() {
                 // Handle error
             }
         }
+        binding.swipe.setOnRefreshListener {
+            lifecycleScope.launch {
+                try {
+                    val response = doorApiService.getDoorData()
+                    handleDoorApiResponse(response)
+                } catch (e: Exception) {
+                    // Handle error
+                }
+            }
+        }
+       binding.swipe.postDelayed({
+           binding.swipe.isRefreshing = false
+
+       }, 2000)
+        binding.swipe.isRefreshing = true
+
     }
    private  fun handleDoorApiResponse(response: DoorApiResponse) {
         if (response.success) {
+            binding.swipe.isRefreshing = false
             val doors = response.data
             binding.recDoor.adapter = DoorAdapter(response.data)
             binding.recDoor.layoutManager = LinearLayoutManager(requireActivity())
@@ -58,7 +76,7 @@ class SecondFragment : Fragment() {
             db.close()
 
         } else {
-
+                binding.swipe.isRefreshing = false
         }
     }
     companion object {

@@ -7,7 +7,7 @@ import uz.fergana.myhouse.model.DoorApiResponse
 
 interface ApiService {
     @GET("cameras")
-    suspend fun getCamera(): BaseModel
+    suspend fun getCameraData(): BaseModel
     @GET("doors")
     suspend fun getDoorData(): DoorApiResponse
 
