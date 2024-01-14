@@ -1,19 +1,14 @@
 package uz.fergana.myhouse.repository
 
 
-import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
 import uz.fergana.myhouse.model.BaseModel
-import uz.fergana.myhouse.model.BaseResponseModel
-import uz.fergana.myhouse.model.CameraModel
+import uz.fergana.myhouse.model.DoorApiResponse
 
 interface ApiService {
-//
-//    @GET("doors/")
-//    fun getCamera(): Call<BaseResponseModel<>>
-
-    @GET("doors/")
-    fun getCamera2(): Call<BaseResponseModel<List<CameraModel>>>
-
+    @GET("cameras")
+    suspend fun getCamera(): BaseModel
+    @GET("doors")
+    suspend fun getDoorData(): DoorApiResponse
 
 }

@@ -6,12 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import uz.fergana.myhouse.R
-import uz.fergana.myhouse.databinding.CamItemLayoutBinding
 import uz.fergana.myhouse.databinding.DoorItemLayoutBinding
-import uz.fergana.myhouse.databinding.FragmentSecondBinding
-import uz.fergana.myhouse.model.CameraModel
-import uz.fergana.myhouse.model.DoorModel
-class DoorAdapter(val items: List<CameraModel>): RecyclerView.Adapter<DoorAdapter.ItemHolder>() {
+import uz.fergana.myhouse.model.Door
+
+class DoorAdapter(val items: List<Door>): RecyclerView.Adapter<DoorAdapter.ItemHolder>() {
     inner class ItemHolder(val binding: DoorItemLayoutBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -35,8 +33,9 @@ class DoorAdapter(val items: List<CameraModel>): RecyclerView.Adapter<DoorAdapte
             holder.binding.postIcon.setImageResource(R.drawable.group_54)
         }else{
             holder.binding.postIcon.setImageResource(R.drawable.group_55)
-
         }
+        if (item.favorites) holder.binding.postStar.setImageResource(R.drawable.star_2) else holder.binding.postStar.visibility = View.GONE
+
         holder.binding.postTitle.text = item.name
         holder.binding.postComment.text = item.room
     }
