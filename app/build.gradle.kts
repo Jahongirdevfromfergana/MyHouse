@@ -2,21 +2,17 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
-
 android {
     namespace = "uz.fergana.myhouse"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "uz.fergana.myhouse"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -37,7 +33,6 @@ android {
         viewBinding = true
     }
 }
-
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -50,10 +45,6 @@ dependencies {
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-
     implementation ("com.github.bumptech.glide:glide:4.16.0")
-
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
-
-
 }

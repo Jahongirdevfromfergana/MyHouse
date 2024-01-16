@@ -11,15 +11,12 @@ import uz.fergana.myhouse.model.Camera
 
 class CameraAdapter(val items: List<Camera>): RecyclerView.Adapter<CameraAdapter.ItemHolder>() {
     inner class ItemHolder(val binding: CamItemLayoutBinding): RecyclerView.ViewHolder(binding.root)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         return ItemHolder(CamItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
-
     override fun getItemCount(): Int {
         return items.count()
     }
-
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val item = items[position]
         if (item.snapshot.isNullOrEmpty()){
@@ -27,12 +24,11 @@ class CameraAdapter(val items: List<Camera>): RecyclerView.Adapter<CameraAdapter
             holder.binding.postStar.visibility = View.GONE
         }else{
             Glide.with(holder.itemView.context).load(item.snapshot).into(holder.binding.postImg)
-
         }
-        if (item.room.isNullOrEmpty()){
-            holder.binding.postIcon.setImageResource(R.drawable.group_54)
+        if (item.rec){
+            holder.binding.postIcon.setImageResource(R.drawable.vector)
         }else{
-            holder.binding.postIcon.setImageResource(R.drawable.group_55)
+            holder.binding.postIcon.visibility = View.GONE
         }
         if (item.favorites) holder.binding.postStar.setImageResource(R.drawable.star_2) else holder.binding.postStar.visibility = View.GONE
 
